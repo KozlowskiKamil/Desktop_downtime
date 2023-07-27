@@ -4,13 +4,25 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.j
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import java.io.IOException;
 
 public class HelloApplication extends Application {
 
     private final static String REST_API_URL = "http://localhost:8080/breakdown"; // URL do Twojego REST API
+
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -21,38 +33,38 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
     // Metoda do obsługi zdarzenia kliknięcia przycisku
-    public void sendBreakdown() {
+    public void onSendButtonClick() {
         // Tutaj stworzysz obiekt reprezentujący awarię (Breakdown) na podstawie danych wprowadzonych przez użytkownika w interfejsie graficznym
 
         Breakdown breakdown = new Breakdown();
-        breakdown.setFailureName("Przykładowa awaria");
+        breakdown.setFailureName("Awaria z desktop");
 
         // Wysłanie żądania POST do REST API
         try {
-            HttpClient httpClient = HttpClient.newHttpClient();
+            HttpClient httpClient = HttpClients.createDefault();
+            org.apache.http.client.methods.HttpRequestBase request = new HttpPost(REST_API_URL);
             ObjectMapper objectMapper = new ObjectMapper();
             String requestBody = objectMapper.writeValueAsString(breakdown);
+            StringEntity entity = new StringEntity(requestBody);
 
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(REST_API_URL))
-                    .POST(HttpRequest.BodyPublishers.ofString(requestBody))
-                    .header("Content-Type", "application/json")
-                    .build();
+            ((HttpPost) request).setEntity(entity);
+            request.setHeader("Accept", "application/json");
+            request.setHeader("Content-type", "application/json");
 
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse response = httpClient.execute(request);
 
             // Obsługa odpowiedzi od serwera
-            if (response.statusCode() == 201) {
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode == 201) {
                 System.out.println("Awaria została pomyślnie dodana na serwerze.");
+                HttpEntity responseEntity = response.getEntity();
+                String responseString = EntityUtils.toString(responseEntity);
+                System.out.println("Odpowiedź od serwera: " + responseString);
             } else {
-                System.out.println("Błąd podczas dodawania awarii. Status: " + response.statusCode());
-                System.out.println("Wiadomość od serwera: " + response.body());
+                System.out.println("Błąd podczas dodawania awarii. Status: " + statusCode);
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             System.out.println("Wystąpił błąd podczas wysyłania żądania.");
             e.printStackTrace();
         }
