@@ -19,12 +19,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.initStyle(StageStyle.DECORATED); // TODO: 7/27/23 change to TRANSPARENT
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add("/style.css");
-//        String css = this.getClass().getResource("/style.css").toExternalForm();
-//        scene.getStylesheets().add(css);
-        stage.setTitle("Awaria!");
+        stage.setTitle(ComputerInfo.getComputerName());
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();
