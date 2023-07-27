@@ -1,9 +1,7 @@
 package com.example.desktop_downtime;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 
 public class HelloController {
     @FXML
@@ -11,10 +9,10 @@ public class HelloController {
 
     @FXML
     protected void onSendButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-
-        // Wywołaj metodę sendBreakdown() z klasy HelloApplication
-        HelloApplication helloApp = new HelloApplication();
-        helloApp.onSendButtonClick();
+        welcomeText.setText("Wysłano zgłoszenie awarii");
+// Wywołaj metodę sendBreakdown() z klasy HelloApplication
+        BreakdownService breakdownService = new BreakdownService();
+        breakdownService.onSendButtonClick();
     }
+
 }
