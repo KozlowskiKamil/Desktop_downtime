@@ -15,11 +15,13 @@ public class BreakdownService {
 
     private final static String REST_API_URL = "http://localhost:8080/breakdown";
 
-    public void onSendButtonClick() {
+    public void onSendButtonClick() throws IOException {
 // Tworze obiekt Breakdown na podstawie danych UI użytkownika
 
         Breakdown breakdown = new Breakdown();
-        breakdown.setFailureName("Awaria z desktop");
+        breakdown.setFailureName(ComputerInfo.getErrorName());
+        breakdown.setComputerName(ComputerInfo.getComputerName());
+
 
 // Wysłanie żądania POST do REST API
         try {

@@ -6,9 +6,18 @@ public class Breakdown {
 
     Long id;
     String failureName;
+    String computerName;
     private LocalDateTime failureStartTime;
 
     public Breakdown() {
+    }
+
+    public String getComputerName() {
+        return computerName;
+    }
+
+    public void setComputerName(String computerName) {
+        this.computerName = computerName;
     }
 
     public Long getId() {
