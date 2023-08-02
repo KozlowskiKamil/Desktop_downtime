@@ -24,7 +24,7 @@ public class Start extends Application {
         String wordToSearch = "fail";
 
         try {
-            String filePath = "/home/kamil/Desktop/projekty/Desktop_downtime/src/main/resources/test.txt";
+            String filePath = "C:\\Users\\Kamil\\Desktop\\Projects\\Desktop_downtime\\src\\main\\resources\\test.txt";
             String sentence = findSentenceAfterWord(filePath, wordToSearch);
             textArea.setText("Zdanie po słowie \"" + wordToSearch + "\":\n" + sentence);
         } catch (IOException e) {
