@@ -13,4 +13,5 @@
 
 <Label fx:id="welcomeText"/>
 <Button text="Zgłoś awarię" onAction="#onSendButtonClick" />
+<Button text="Zamknij awarię" onAction="#endButtonClick" />
 </VBox>
