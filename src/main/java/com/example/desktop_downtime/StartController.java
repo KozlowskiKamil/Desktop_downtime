@@ -35,6 +35,13 @@ public class StartController {
     private Scene scene;
     private Parent root;
 
+
+    @FXML
+    public void handleButtonAction(ActionEvent event) throws IOException {
+        swichToScene2(event);
+        swichButtonsCreateClose();
+    }
+
     public void swichToScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(HelloApplication.class.getResource("start.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
