@@ -4,12 +4,49 @@ import java.time.LocalDateTime;
 
 public class Breakdown {
 
-    Long id;
-    String failureName;
-    String computerName;
+    private Long id;
+    private String failureName;
+    private String computerName;
+    private String description;
+    private boolean ongoing;
+    private long counter;
     private LocalDateTime failureStartTime;
+    private LocalDateTime failureEndTime;
 
     public Breakdown() {
+    }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isOngoing() {
+        return ongoing;
+    }
+
+    public void setOngoing(boolean ongoing) {
+        this.ongoing = ongoing;
+    }
+
+    public long getCounter() {
+        return counter;
+    }
+
+    public void setCounter(long counter) {
+        this.counter = counter;
+    }
+
+    public LocalDateTime getFailureEndTime() {
+        return failureEndTime;
+    }
+
+    public void setFailureEndTime(LocalDateTime failureEndTime) {
+        this.failureEndTime = failureEndTime;
     }
 
     public String getComputerName() {
@@ -41,12 +78,6 @@ public class Breakdown {
     }
 
     public void setFailureStartTime(LocalDateTime failureStartTime) {
-        this.failureStartTime = failureStartTime;
-    }
-
-    public Breakdown(Long id, String failureName, LocalDateTime failureStartTime) {
-        this.id = id;
-        this.failureName = failureName;
         this.failureStartTime = failureStartTime;
     }
 }

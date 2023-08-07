@@ -17,4 +17,12 @@ public class HelloController {
         breakdownService.onSendButtonClick();
     }
 
+    @FXML
+    protected void endButtonClick() throws IOException {
+        welcomeText.setText("Wysłano zgłoszenie awarii");
+// Wywołaj metodę editBreakdown() z klasy HelloApplication
+        BreakdownService breakdownService = new BreakdownService();
+        breakdownService.endButtonClick();
+    }
+
 }
