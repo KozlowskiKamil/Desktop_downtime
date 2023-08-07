@@ -1,15 +1,25 @@
-package com.example.desktop_downtime;
+package com.example.desktop_downtime.controler;
 
+import com.example.desktop_downtime.service.BreakdownService;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class HelloController {
+public class StartController {
+
+
+    @FXML
+    private TextField myTextField;
 
     @FXML
     private Label welcomeText;
@@ -21,6 +31,16 @@ public class HelloController {
 
     private Timeline hideTextTimeline;
 
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void switchToStart(ActionEvent event){
+
+    }
+    public void switchToDescription(ActionEvent event){
+
+    }
 
     @FXML
     public void swichButtonsCreateClose() throws IOException {

@@ -1,4 +1,4 @@
-package com.example.desktop_downtime;
+package com.example.desktop_downtime.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

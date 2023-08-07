@@ -1,3 +1,4 @@
+/*
 package com.example.desktop_downtime;
 
 import javafx.application.Application;
@@ -52,3 +53,4 @@ public class Start extends Application {
         return result.toString();
     }
 }
+*/
