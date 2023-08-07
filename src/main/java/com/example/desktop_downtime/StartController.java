@@ -38,8 +38,8 @@ public class StartController {
 
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException {
-        swichToScene2(event);
-        swichButtonsCreateClose();
+        swichToScene1(event);
+        endBreakedownButton(event);
     }
 
     public void swichToScene1(ActionEvent event) throws IOException {
@@ -70,9 +70,9 @@ public class StartController {
 
 
     @FXML
-    public void swichButtonsCreateClose() throws IOException {
+    public void swichButtonsCreateClose(ActionEvent event) throws IOException {
         if (isEndButtonVisible) {
-            closeButton();
+            closeButton(event);
             welcomeText.setText("Zamknięto awarię");
             endButton.setText("Zgłoś awarię");
             isEndButtonVisible = false;
@@ -103,8 +103,13 @@ public class StartController {
         breakdownService.onSendButtonClick();
     }
 
-    private void closeButton() {
-        welcomeText.setText("Awaria została zamknięta");
+    private void closeButton(ActionEvent event) throws IOException {
+        swichToScene2(event);
+    }
+
+    @FXML
+    private void endBreakedownButton(ActionEvent event) throws IOException {
+        swichToScene1(event);
         BreakdownService breakdownService = new BreakdownService();
         breakdownService.endButtonClick();
     }
