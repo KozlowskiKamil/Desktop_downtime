@@ -17,6 +17,8 @@ public class BreakdownService {
 
     private final static String REST_API_URL = "http://localhost:8080/breakdown";
 
+    private static Long tempID;
+
 
     public void onSendButtonClick() throws IOException {
 // Tworze obiekt Breakdown na podstawie danych UI użytkownika
@@ -47,6 +49,14 @@ public class BreakdownService {
                 HttpEntity responseEntity = response.getEntity();
                 String responseString = EntityUtils.toString(responseEntity);
                 System.out.println("Odpowiedź od serwera: " + responseString);
+
+
+                ObjectMapper objectMapper2 = new ObjectMapper();
+                BreakdownIdResponse breakdownResponse = objectMapper2.readValue(responseString, BreakdownIdResponse.class);
+
+                // Teraz możemy odczytać id z obiektu Breakdown i przypisać je do zmiennej
+                tempID = breakdownResponse.getId();
+                System.out.println("tempID = " + tempID);
             } else {
                 System.out.println("Błąd podczas dodawania awarii. Status: " + statusCode);
             }
@@ -59,9 +69,10 @@ public class BreakdownService {
 
     public void endButtonClick() {
 // Tworze obiekt Breakdown na podstawie danych UI użytkownika
+        System.out.println("tempID odczyt = " + tempID);
 
         Breakdown breakdown = new Breakdown();
-        breakdown.setId(3L);
+        breakdown.setId(tempID);
         breakdown.setDescription("bbbbbbbbbbbbbbbbbbbb");
 
 

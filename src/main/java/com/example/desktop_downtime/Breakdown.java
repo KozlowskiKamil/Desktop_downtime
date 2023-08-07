@@ -80,4 +80,5 @@ public class Breakdown {
     public void setFailureStartTime(LocalDateTime failureStartTime) {
         this.failureStartTime = failureStartTime;
     }
+
 }
