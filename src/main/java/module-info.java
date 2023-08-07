@@ -11,8 +11,6 @@ module com.example.desktop_downtime {
 
     opens com.example.desktop_downtime to javafx.fxml;
     exports com.example.desktop_downtime;
-    exports com.example.desktop_downtime.controler;
-    opens com.example.desktop_downtime.controler to javafx.fxml;
     exports com.example.desktop_downtime.service;
     opens com.example.desktop_downtime.service to javafx.fxml;
     exports com.example.desktop_downtime.model;

@@ -1,15 +1,18 @@
-package com.example.desktop_downtime.controler;
+package com.example.desktop_downtime;
 
 import com.example.desktop_downtime.service.BreakdownService;
+import com.example.desktop_downtime.service.ComputerInfoService;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -17,9 +20,6 @@ import java.io.IOException;
 
 public class StartController {
 
-
-    @FXML
-    private TextField myTextField;
 
     @FXML
     private Label welcomeText;
@@ -35,12 +35,32 @@ public class StartController {
     private Scene scene;
     private Parent root;
 
-    public void switchToStart(ActionEvent event){
-
+    public void swichToScene1(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HelloApplication.class.getResource("start.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        scene.getStylesheets().add("/style.css");
+        stage.setTitle(ComputerInfoService.getComputerName());
+        stage.setScene(scene);
+        stage.setAlwaysOnTop(true);
+        stage.alwaysOnTopProperty();
+        stage.show();
     }
-    public void switchToDescription(ActionEvent event){
 
+    public void swichToScene2(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(HelloApplication.class.getResource("description.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        scene.getStylesheets().add("/style.css");
+        stage.setTitle(ComputerInfoService.getComputerName());
+        stage.setScene(scene);
+        stage.setAlwaysOnTop(true);
+        stage.alwaysOnTopProperty();
+        stage.show();
     }
+
 
     @FXML
     public void swichButtonsCreateClose() throws IOException {

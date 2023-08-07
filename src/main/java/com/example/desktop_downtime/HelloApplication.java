@@ -3,6 +3,7 @@ package com.example.desktop_downtime;
 import com.example.desktop_downtime.service.ComputerInfoService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -18,9 +19,9 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("start.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.initStyle(StageStyle.DECORATED); // TODO: 7/27/23 change to TRANSPARENT
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("start.fxml"));
+        Scene scene = new Scene(root);
+        stage.initStyle(StageStyle.TRANSPARENT); // TODO: 7/27/23 change to TRANSPARENT
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add("/style.css");
         stage.setTitle(ComputerInfoService.getComputerName());
