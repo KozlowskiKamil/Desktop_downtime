@@ -19,17 +19,6 @@ public class BreakdownIdResponse {
     @JsonIgnore
     private LocalDateTime failureEndTime;
 
-    public BreakdownIdResponse(Long id, String failureName, String computerName, String description, boolean ongoing, long counter, LocalDateTime failureStartTime, LocalDateTime failureEndTime) {
-        this.id = id;
-        this.failureName = failureName;
-        this.computerName = computerName;
-        this.description = description;
-        this.ongoing = ongoing;
-        this.counter = counter;
-        this.failureStartTime = failureStartTime;
-        this.failureEndTime = failureEndTime;
-    }
-
     public BreakdownIdResponse() {
     }
 

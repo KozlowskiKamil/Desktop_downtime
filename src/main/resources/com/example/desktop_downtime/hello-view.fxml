@@ -12,5 +12,5 @@
     </padding>
 
     <Label fx:id="welcomeText"/>
-    <Button fx:id="endButton" text="Zgłoś awarię" onAction="#onSendEndButtonClick" />
+    <Button fx:id="endButton" text="Zgłoś awarię" onAction="#swichButtonsCreateClose" />
 </VBox>
