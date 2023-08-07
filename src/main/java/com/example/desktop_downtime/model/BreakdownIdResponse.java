@@ -17,6 +17,8 @@ public class BreakdownIdResponse {
     @JsonIgnore
     private LocalDateTime failureStartTime;
     @JsonIgnore
+    private LocalDateTime failureWaitingTime;
+    @JsonIgnore
     private LocalDateTime failureEndTime;
 
     public BreakdownIdResponse() {

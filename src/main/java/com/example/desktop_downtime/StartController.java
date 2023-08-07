@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -20,26 +22,47 @@ import java.io.IOException;
 
 public class StartController {
 
-
     @FXML
     private Label welcomeText;
-
     @FXML
     private Button endButton;
+    @FXML
+    private Label myLabel;
+    @FXML
+    private TextArea myTextArea;
+
+    String description;
 
     private boolean isEndButtonVisible = false;
-
     private Timeline hideTextTimeline;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
 
 
     @FXML
-    public void handleButtonAction(ActionEvent event) throws IOException {
+    private void endBreakedownButton(ActionEvent event) throws IOException {
+        submitText(event);
         swichToScene1(event);
-        endBreakedownButton(event);
+        BreakdownService breakdownService = new BreakdownService();
+        breakdownService.endButtonClick();
+    }
+
+
+    @FXML
+    public void swichButtonsCreateClose(ActionEvent event) throws IOException {
+        if (isEndButtonVisible) {
+            closeButton(event);
+            welcomeText.setText("Zamknięto awarię");
+            endButton.setText("Zgłoś awarię");
+            isEndButtonVisible = false;
+        } else {
+            createButton();
+            welcomeText.setText("Zgłoszono awarię!");
+            endButton.setText("Zamknij awarię");
+            isEndButtonVisible = true;
+        }
+        hideWelcomeText(Duration.seconds(5));
     }
 
     public void swichToScene1(ActionEvent event) throws IOException {
@@ -69,24 +92,6 @@ public class StartController {
     }
 
 
-    @FXML
-    public void swichButtonsCreateClose(ActionEvent event) throws IOException {
-        if (isEndButtonVisible) {
-            closeButton(event);
-            welcomeText.setText("Zamknięto awarię");
-            endButton.setText("Zgłoś awarię");
-            isEndButtonVisible = false;
-        } else {
-            createButton();
-            welcomeText.setText("Zgłoszono awarię!");
-            endButton.setText("Zamknij awarię");
-            isEndButtonVisible = true;
-        }
-
-        hideWelcomeText(Duration.seconds(5));
-
-    }
-
     private void hideWelcomeText(Duration delay) {
         if (hideTextTimeline != null) {
             hideTextTimeline.stop();
@@ -107,11 +112,9 @@ public class StartController {
         swichToScene2(event);
     }
 
-    @FXML
-    private void endBreakedownButton(ActionEvent event) throws IOException {
-        swichToScene1(event);
-        BreakdownService breakdownService = new BreakdownService();
-        breakdownService.endButtonClick();
+    public void submitText(ActionEvent event) {
+        description = myTextArea.getText();
+        System.out.println("description = " + description);
     }
 
 }

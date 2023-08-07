@@ -9,8 +9,10 @@ public class Breakdown {
     private String computerName;
     private String description;
     private boolean ongoing;
+    private boolean repairInProgress;
     private long counter;
     private LocalDateTime failureStartTime;
+    private LocalDateTime failureWaitingTime;
     private LocalDateTime failureEndTime;
 
     public Breakdown() {
