@@ -31,7 +31,7 @@ public class StartController {
     @FXML
     private TextArea myTextArea;
 
-    String description;
+    public static String description;
 
     private boolean isEndButtonVisible = false;
     private Timeline hideTextTimeline;

@@ -1,5 +1,6 @@
 package com.example.desktop_downtime.service;
 
+import com.example.desktop_downtime.StartController;
 import com.example.desktop_downtime.model.Breakdown;
 import com.example.desktop_downtime.model.BreakdownIdResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -66,7 +67,7 @@ public class BreakdownService {
     public void endButtonClick() {
         Breakdown breakdown = new Breakdown();
         breakdown.setId(tempID);
-        breakdown.setDescription("Zamknieta awaria z programu hardcode");
+        breakdown.setDescription(StartController.description);
 
 // Wysłanie żądania POST do REST API
         try {
