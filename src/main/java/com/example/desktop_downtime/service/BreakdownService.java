@@ -68,6 +68,7 @@ public class BreakdownService {
         Breakdown breakdown = new Breakdown();
         breakdown.setId(tempID);
         breakdown.setDescription(StartController.description);
+        breakdown.setWaitingTime(StartController.waitingTime);
 
 // Wysłanie żądania POST do REST API
         try {
@@ -98,4 +99,5 @@ public class BreakdownService {
             e.printStackTrace();
         }
     }
+
 }

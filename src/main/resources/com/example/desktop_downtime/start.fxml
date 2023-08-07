@@ -14,5 +14,10 @@
             <Font size="36.0" />
          </font>
       </Label>
+      <Label fx:id="timerLabel" layoutX="102.0" layoutY="108.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

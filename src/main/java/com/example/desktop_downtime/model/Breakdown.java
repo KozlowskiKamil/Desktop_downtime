@@ -9,15 +9,25 @@ public class Breakdown {
     private String computerName;
     private String description;
     private boolean ongoing;
-    private boolean repairInProgress;
     private long counter;
+
+
+    private long waitingTime;
+
     private LocalDateTime failureStartTime;
-    private LocalDateTime failureWaitingTime;
     private LocalDateTime failureEndTime;
 
     public Breakdown() {
     }
 
+
+    public long getWaitingTime() {
+        return waitingTime;
+    }
+
+    public void setWaitingTime(long waitingTime) {
+        this.waitingTime = waitingTime;
+    }
 
     public String getDescription() {
         return description;

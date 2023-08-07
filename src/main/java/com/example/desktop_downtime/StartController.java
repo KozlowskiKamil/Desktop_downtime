@@ -2,6 +2,7 @@ package com.example.desktop_downtime;
 
 import com.example.desktop_downtime.service.BreakdownService;
 import com.example.desktop_downtime.service.ComputerInfoService;
+import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -13,31 +14,32 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 public class StartController {
 
+    public static String description;
+    public static long waitingTime;
     @FXML
     private Label welcomeText;
     @FXML
     private Button endButton;
     @FXML
-    private Label myLabel;
+    private Label timerLabel;
     @FXML
     private TextArea myTextArea;
-
-    public static String description;
-
     private boolean isEndButtonVisible = false;
     private Timeline hideTextTimeline;
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private LocalTime startTime;
 
 
     @FXML
@@ -61,6 +63,8 @@ public class StartController {
             welcomeText.setText("Zgłoszono awarię!");
             endButton.setText("Zamknij awarię");
             isEndButtonVisible = true;
+            startTime = LocalTime.now();
+
         }
         hideWelcomeText(Duration.seconds(5));
     }
@@ -110,11 +114,32 @@ public class StartController {
 
     private void closeButton(ActionEvent event) throws IOException {
         swichToScene2(event);
+        LocalTime endTime = LocalTime.now();
+//        long minutes = startTime.until(endTime, ChronoUnit.MINUTES);
+        long seconds = startTime.until(endTime, ChronoUnit.SECONDS) % 60;
+//        waitingTime = LocalTime.of(0, (int) minutes, (int) seconds);
+        waitingTime = seconds;
+        System.out.println("waitingTime = " + waitingTime);
     }
 
     public void submitText(ActionEvent event) {
         description = myTextArea.getText();
         System.out.println("description = " + description);
+    }
+
+    public void initialize() {
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                if (startTime != null) {
+                    LocalTime currentTime = LocalTime.now();
+                    long minutes = startTime.until(currentTime, ChronoUnit.MINUTES);
+                    long seconds = startTime.until(currentTime, ChronoUnit.SECONDS) % 60;
+                    timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
+                }
+            }
+        };
+        timer.start();
     }
 
 }
