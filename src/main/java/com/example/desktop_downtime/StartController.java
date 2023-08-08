@@ -56,14 +56,15 @@ public class StartController {
         if (isEndButtonVisible) {
             closeButton(event);
             welcomeText.setText("Zamknięto awarię");
-            endButton.setText("Zgłoś awarię");
+            endButton.setText("ZGŁOŚ\nAWARIĘ");
             isEndButtonVisible = false;
         } else {
             createButton();
             welcomeText.setText("Zgłoszono awarię!");
-            endButton.setText("Zamknij awarię");
+            endButton.setText("ZAMKNIJ\nAWARIĘ");
             isEndButtonVisible = true;
             startTime = LocalTime.now();
+            endButton.getStyleClass().add("buttonEnd");
 
         }
         hideWelcomeText(Duration.seconds(5));

@@ -3,5 +3,34 @@
     -fx-border-width: 0;
     -fx-background-color: rgba(0, 0, 0, 0.2);
     -fx-background-radius: 20;
+}
+/*.label{*/
+/*    -fx-font-scale: 12;*/
+/*    -fx-font-family: "Lucida Console";*/
+/*    -fx-font-weight: bolder;*/
+/*}*/
+.button{
+    -fx-background-color: #31FF3B;
+    -fx-background-radius: 10 10 10 10;
+}
+.button:hover{
+    -fx-background-color: #24BF2C;
+    -fx-background-radius: 10 10 10 10;
+}
+.button:pressed{
+    -fx-background-color: #18801D;
+    -fx-background-radius: 10 10 10 10;
+}
 
+.buttonEnd{
+    -fx-background-color: #FF4933;
+    -fx-background-radius: 10 10 10 10;
+}
+.buttonEnd:hover{
+    -fx-background-color: #BF3626;
+    -fx-background-radius: 10 10 10 10;
+}
+.buttonEnd:pressed{
+    -fx-background-color: #802419;
+    -fx-background-radius: 10 10 10 10;
 }

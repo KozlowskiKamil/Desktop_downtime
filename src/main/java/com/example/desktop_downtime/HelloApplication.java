@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -28,6 +29,10 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();
+        double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
+        double oneCmInPixels = 55;
+        double posX = screenWidthInPixels - oneCmInPixels;
+        stage.setX(posX);
         stage.show();
     }
 
