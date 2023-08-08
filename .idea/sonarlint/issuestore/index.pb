@@ -14,8 +14,6 @@ N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-{
-Ksrc/main/java/com/example/desktop_downtime/service/ComputerInfoService.java,a\e\aed530a79bb6cebb9727c32a55497bb1417b4a5f
 o
 ?src/main/java/com/example/desktop_downtime/model/Breakdown.java,3\c\3c99005645c38401d18369ba02caa000037550bf
 y

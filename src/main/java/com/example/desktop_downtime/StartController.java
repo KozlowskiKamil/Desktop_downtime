@@ -11,10 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -80,6 +79,22 @@ public class StartController {
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();
+        double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
+        double oneCmInPixels = 100;
+        double posX = screenWidthInPixels - oneCmInPixels;
+        stage.setX(posX);
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem minimizeItem = new MenuItem("Minimalizuj");
+        minimizeItem.setOnAction(event2 -> {
+            stage.setIconified(true); // Minimalizuj okno
+        });
+        contextMenu.getItems().add(minimizeItem);
+
+        root.setOnMousePressed(event2 -> {
+            if (event2.isSecondaryButtonDown()) {
+                contextMenu.show(root, event2.getScreenX(), event2.getScreenY());
+            }
+        });
         stage.show();
     }
 
@@ -90,9 +105,26 @@ public class StartController {
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add("/style.css");
         stage.setTitle(ComputerInfoService.getComputerName());
+        double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
+        double oneCmInPixels = 0;
+        double sceneWidth = 220;
+        double posX = screenWidthInPixels - sceneWidth - oneCmInPixels;
+        stage.setX(posX);
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem minimizeItem = new MenuItem("Minimalizuj");
+        minimizeItem.setOnAction(event2 -> {
+            stage.setIconified(true); // Minimalizuj okno
+        });
+        contextMenu.getItems().add(minimizeItem);
+
+        root.setOnMousePressed(event2 -> {
+            if (event2.isSecondaryButtonDown()) {
+                contextMenu.show(root, event2.getScreenX(), event2.getScreenY());
+            }
+        });
         stage.show();
     }
 
