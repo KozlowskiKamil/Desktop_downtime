@@ -20,5 +20,7 @@ y
 Isrc/main/java/com/example/desktop_downtime/model/BreakdownIdResponse.java,d\8\d872f5a0325bb9a9238ed80805920e16580c3b3a
 x
 Hsrc/main/java/com/example/desktop_downtime/service/BreakdownService.java,7\c\7cea4be350be0469abc4c6e6d47f2326544f43fe
-e
-5src/main/java/com/example/desktop_downtime/Start.java,e\3\e3b21d5665405199f2a8a49e1893bbe21e4697aa
+{
+Ksrc/main/java/com/example/desktop_downtime/service/ComputerInfoService.java,a\e\aed530a79bb6cebb9727c32a55497bb1417b4a5f
+o
+?src/main/java/com/example/desktop_downtime/StartController.java,2\e\2e6cdc243c40a8c0d601df99225b7097f211638b

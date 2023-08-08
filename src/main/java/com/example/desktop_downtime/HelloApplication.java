@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -23,6 +24,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("start.fxml"));
+        Image image = new Image(getClass().getResource("/ico/icoapp.png").toExternalForm());
+        stage.getIcons().add(image);
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT); // TODO: 7/27/23 change to TRANSPARENT
         scene.setFill(Color.TRANSPARENT);
