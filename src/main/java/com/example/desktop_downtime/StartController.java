@@ -28,6 +28,8 @@ public class StartController {
     @FXML
     private Label welcomeText;
     @FXML
+    private Label breakdownDescription;
+    @FXML
     private Button endButton;
     @FXML
     private Label timerLabel;

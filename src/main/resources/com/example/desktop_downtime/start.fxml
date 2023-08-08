@@ -17,7 +17,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="timerLabel" layoutX="38.0" layoutY="75.0" textFill="#eaff00">
+      <Label fx:id="timerLabel" layoutX="38.0" layoutY="75.0" textAlignment="RIGHT" textFill="#eaff00">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -1,14 +1,10 @@
 .root {
     -fx-border-style: hidden;
     -fx-border-width: 0;
-    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-color: rgba(0, 0, 0, 0.0);
     -fx-background-radius: 20;
 }
-/*.label{*/
-/*    -fx-font-scale: 12;*/
-/*    -fx-font-family: "Lucida Console";*/
-/*    -fx-font-weight: bolder;*/
-/*}*/
+
 .button{
     -fx-background-color: #31FF3B;
     -fx-background-radius: 20 0 0 20;
@@ -33,4 +29,11 @@
 .buttonEnd:pressed{
     -fx-background-color: #802419;
     -fx-background-radius: 20 0 0 20;
+}
+
+#breakdownDescription {
+    -fx-text-fill: yellow;
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-background-radius: 10 10 10 10;
+    -fx-padding: 5px;
 }
