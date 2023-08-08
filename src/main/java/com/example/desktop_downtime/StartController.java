@@ -156,10 +156,9 @@ public class StartController {
     private void closeButton(ActionEvent event) throws IOException {
         swichToScene2(event);
         LocalTime endTime = LocalTime.now();
-//        long minutes = startTime.until(endTime, ChronoUnit.MINUTES);
-        long seconds = startTime.until(endTime, ChronoUnit.SECONDS) % 60;
-//        waitingTime = LocalTime.of(0, (int) minutes, (int) seconds);
-        waitingTime = seconds;
+        long minutes = startTime.until(endTime, ChronoUnit.MINUTES);
+        long seconds = startTime.until(endTime, ChronoUnit.SECONDS);
+        waitingTime = (minutes * 60) + seconds;
         System.out.println("waitingTime = " + waitingTime);
     }
 
