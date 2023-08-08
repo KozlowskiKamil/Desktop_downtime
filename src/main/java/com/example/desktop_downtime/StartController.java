@@ -51,6 +51,12 @@ public class StartController {
         breakdownService.endButtonClick();
     }
 
+    @FXML
+    private void assingBreakedownButton(ActionEvent event) throws IOException {
+        BreakdownService breakdownService = new BreakdownService();
+        breakdownService.assingButtonClick();
+    }
+
 
     @FXML
     public void swichButtonsCreateClose(ActionEvent event) throws IOException {
