@@ -60,7 +60,7 @@ public class StartController {
             isEndButtonVisible = false;
         } else {
             createButton();
-            welcomeText.setText("Zgłoszono awarię!");
+            welcomeText.setText("Awaria\nzgłoszona");
             endButton.setText("ZAMKNIJ\nAWARIĘ");
             isEndButtonVisible = true;
             startTime = LocalTime.now();
