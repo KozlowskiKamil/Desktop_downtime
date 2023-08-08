@@ -1,4 +1,4 @@
-package com.example.desktop_downtime;
+package com.example.desktop_downtime.model;
 
 import java.time.LocalDateTime;
 
@@ -10,12 +10,24 @@ public class Breakdown {
     private String description;
     private boolean ongoing;
     private long counter;
+
+
+    private long waitingTime;
+
     private LocalDateTime failureStartTime;
     private LocalDateTime failureEndTime;
 
     public Breakdown() {
     }
 
+
+    public long getWaitingTime() {
+        return waitingTime;
+    }
+
+    public void setWaitingTime(long waitingTime) {
+        this.waitingTime = waitingTime;
+    }
 
     public String getDescription() {
         return description;

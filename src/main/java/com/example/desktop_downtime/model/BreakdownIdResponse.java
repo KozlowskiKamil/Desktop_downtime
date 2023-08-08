@@ -1,4 +1,4 @@
-package com.example.desktop_downtime;
+package com.example.desktop_downtime.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,10 +16,22 @@ public class BreakdownIdResponse {
     private long counter;
     @JsonIgnore
     private LocalDateTime failureStartTime;
+
+
+    private long waitingTime;
+
     @JsonIgnore
     private LocalDateTime failureEndTime;
 
     public BreakdownIdResponse() {
+    }
+
+    public long getWaitingTime() {
+        return waitingTime;
+    }
+
+    public void setWaitingTime(long waitingTime) {
+        this.waitingTime = waitingTime;
     }
 
     public Long getId() {

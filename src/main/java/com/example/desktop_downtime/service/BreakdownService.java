@@ -1,5 +1,8 @@
-package com.example.desktop_downtime;
+package com.example.desktop_downtime.service;
 
+import com.example.desktop_downtime.StartController;
+import com.example.desktop_downtime.model.Breakdown;
+import com.example.desktop_downtime.model.BreakdownIdResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,8 +24,8 @@ public class BreakdownService {
 
     public void onSendButtonClick() throws IOException {
         Breakdown breakdown = new Breakdown();
-        breakdown.setFailureName(ComputerInfo.getErrorName());
-        breakdown.setComputerName(ComputerInfo.getComputerName());
+        breakdown.setFailureName(ComputerInfoService.getErrorName());
+        breakdown.setComputerName(ComputerInfoService.getComputerName());
 
 
 // Wysłanie żądania POST do REST API
@@ -64,7 +67,8 @@ public class BreakdownService {
     public void endButtonClick() {
         Breakdown breakdown = new Breakdown();
         breakdown.setId(tempID);
-        breakdown.setDescription("Zamknieta awaria z programu hardcode");
+        breakdown.setDescription(StartController.description);
+        breakdown.setWaitingTime(StartController.waitingTime);
 
 // Wysłanie żądania POST do REST API
         try {
@@ -95,4 +99,5 @@ public class BreakdownService {
             e.printStackTrace();
         }
     }
+
 }
