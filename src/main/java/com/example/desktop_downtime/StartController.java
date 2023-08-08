@@ -81,8 +81,11 @@ public class StartController {
         stage.alwaysOnTopProperty();
         double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
         double oneCmInPixels = 100;
+        double sceneHeight = 700;
         double posX = screenWidthInPixels - oneCmInPixels;
+        double posY = (screenWidthInPixels - sceneHeight) / 2; // Oblicz pozycję Y na środku
         stage.setX(posX);
+        stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
         MenuItem minimizeItem = new MenuItem("Minimalizuj");
         minimizeItem.setOnAction(event2 -> {
@@ -108,8 +111,11 @@ public class StartController {
         double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
         double oneCmInPixels = 0;
         double sceneWidth = 220;
+        double sceneHeight = 900;
         double posX = screenWidthInPixels - sceneWidth - oneCmInPixels;
+        double posY = (screenWidthInPixels - sceneHeight) / 2;
         stage.setX(posX);
+        stage.setY(posY);
         stage.setScene(scene);
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();

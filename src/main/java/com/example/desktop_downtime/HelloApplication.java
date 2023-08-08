@@ -33,8 +33,11 @@ public class HelloApplication extends Application {
         stage.alwaysOnTopProperty();
         double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
         double oneCmInPixels = 100;
+        double sceneHeight = 700;
         double posX = screenWidthInPixels - oneCmInPixels;
+        double posY = (screenWidthInPixels - sceneHeight) / 2; // Oblicz pozycję Y na środku
         stage.setX(posX);
+        stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
         MenuItem minimizeItem = new MenuItem("Minimalizuj");
         minimizeItem.setOnAction(event -> {
