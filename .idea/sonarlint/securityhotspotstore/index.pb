@@ -20,3 +20,5 @@ o
 ?src/main/java/com/example/desktop_downtime/model/Breakdown.java,3\c\3c99005645c38401d18369ba02caa000037550bf
 {
 Ksrc/main/java/com/example/desktop_downtime/service/ComputerInfoService.java,a\e\aed530a79bb6cebb9727c32a55497bb1417b4a5f
+e
+5src/main/java/com/example/desktop_downtime/Start.java,e\3\e3b21d5665405199f2a8a49e1893bbe21e4697aa

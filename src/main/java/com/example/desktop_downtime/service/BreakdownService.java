@@ -24,31 +24,23 @@ public class BreakdownService {
 
     private final static String REST_API_URL = "http://localhost:8080/breakdown";
     private final static String REST_API_ASSING = "http://localhost:8080/assign";
-
     private static Long tempID;
     private static Long technicanID;
-
 
     public void onSendButtonClick() throws IOException {
         Breakdown breakdown = new Breakdown();
         breakdown.setFailureName(ComputerInfoService.getErrorName());
         breakdown.setComputerName(ComputerInfoService.getComputerName());
-
-
-// Wysłanie żądania POST do REST API
         try {
             HttpClient httpClient = HttpClients.createDefault();
             org.apache.http.client.methods.HttpRequestBase request = new HttpPost(REST_API_URL);
             ObjectMapper objectMapper = new ObjectMapper();
             String requestBody = objectMapper.writeValueAsString(breakdown);
             StringEntity entity = new StringEntity(requestBody);
-
             ((HttpPost) request).setEntity(entity);
             request.setHeader("Accept", "application/json");
             request.setHeader("Content-type", "application/json");
-
             HttpResponse response = httpClient.execute(request);
-
 // Obsługa odpowiedzi od serwera
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 201) {
@@ -56,10 +48,8 @@ public class BreakdownService {
                 HttpEntity responseEntity = response.getEntity();
                 String responseString = EntityUtils.toString(responseEntity);
                 System.out.println("Odpowiedź od serwera: " + responseString);
-
                 ObjectMapper objectMapper2 = new ObjectMapper();
                 BreakdownIdResponse breakdownResponse = objectMapper2.readValue(responseString, BreakdownIdResponse.class);
-
                 tempID = breakdownResponse.getId();
             } else {
                 System.out.println("Błąd podczas dodawania awarii. Status: " + statusCode);
@@ -75,22 +65,16 @@ public class BreakdownService {
         Breakdown breakdown = new Breakdown();
         breakdown.setId(tempID);
         breakdown.setDescription(StartController.description);
-        breakdown.setWaitingTime(StartController.waitingTime);
-
-// Wysłanie żądania POST do REST API
         try {
             HttpClient httpClient = HttpClients.createDefault();
             org.apache.http.client.methods.HttpRequestBase request = new HttpPatch(REST_API_URL);
             ObjectMapper objectMapper = new ObjectMapper();
             String requestBody = objectMapper.writeValueAsString(breakdown);
             StringEntity entity = new StringEntity(requestBody);
-
             ((HttpPatch) request).setEntity(entity);
             request.setHeader("Accept", "application/json");
             request.setHeader("Content-type", "application/json");
-
             HttpResponse response = httpClient.execute(request);
-
 // Obsługa odpowiedzi od serwera
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
@@ -112,16 +96,12 @@ public class BreakdownService {
         try {
             HttpClient httpClient = HttpClients.createDefault();
             HttpPost request = new HttpPost(REST_API_ASSING);
-
             List<NameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("technicianId", String.valueOf(2l)));
+            params.add(new BasicNameValuePair("technicianId", String.valueOf(technicanID)));
             params.add(new BasicNameValuePair("breakdownId", String.valueOf(tempID)));
-//            params.add(new BasicNameValuePair("waitingTime", String.valueOf(StartController.waitingTime)));
-
+            params.add(new BasicNameValuePair("waitingTime", String.valueOf(StartController.waitingTime)));
             request.setEntity(new UrlEncodedFormEntity(params));
-
             HttpResponse response = httpClient.execute(request);
-
 // Obsługa odpowiedzi od serwera
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
@@ -137,5 +117,4 @@ public class BreakdownService {
             e.printStackTrace();
         }
     }
-
 }
