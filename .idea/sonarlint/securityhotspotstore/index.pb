@@ -9,5 +9,3 @@ H
 src/META-INF/MANIFEST.MF,e\4\e4b1fd2293ba1e598e6bec4e0ee3b6b6851eb5a2
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
-y
-Isrc/main/java/com/example/desktop_downtime/model/BreakdownIdResponse.java,d\8\d872f5a0325bb9a9238ed80805920e16580c3b3a

@@ -17,6 +17,7 @@ import java.util.InputMismatchException;
 public class LoginController {
 
 
+    public static int badgeNumberInt;
     int badgeNumber;
     @FXML
     private Label myLabel;
@@ -26,9 +27,6 @@ public class LoginController {
     private Label timerLabel;
     @FXML
     private Button loginButton;
-
-
-    public static int badgeNumberInt;
 
     public void submit(ActionEvent event) throws IOException {
         TechnicianService technicianService = new TechnicianService();
@@ -44,6 +42,8 @@ public class LoginController {
         }
         technicianService.loginButtonClick();
         assingBreakedownButton(event);
+        StartController startController = new StartController();
+        startController.swichToScene2(event);
     }
 
 
