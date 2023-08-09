@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
 import java.time.LocalTime;
@@ -67,5 +68,15 @@ public class LoginController {
             }
         };
         timer.start();
+        myTextField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                try {
+                    submit(new ActionEvent());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
+
 }
