@@ -30,7 +30,7 @@ public class LoginController {
 
     public static int badgeNumberInt;
 
-    public void submit(ActionEvent event) {
+    public void submit(ActionEvent event) throws IOException {
         TechnicianService technicianService = new TechnicianService();
         try {
             badgeNumber = Integer.parseInt(myTextField.getText());
@@ -43,6 +43,7 @@ public class LoginController {
             myLabel.setText("error");
         }
         technicianService.loginButtonClick();
+        assingBreakedownButton(event);
     }
 
 
