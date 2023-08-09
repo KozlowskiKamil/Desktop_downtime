@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="190.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop_downtime.LoginController">
     <children>
-        <Button fx:id="endButton" layoutX="104.0" onAction="#assingBreakedownButton" prefHeight="73.0" prefWidth="86.0" stylesheets="@../../../style.css" text="ZALOGUJ" textAlignment="CENTER">
+        <Button fx:id="loginButton" layoutX="104.0" onAction="#submit" prefHeight="73.0" prefWidth="86.0" stylesheets="@../../../style.css" text="ZALOGUJ" textAlignment="CENTER">
             <font>
                 <Font name="Arial Bold" size="14.0" />
             </font></Button>
 
-        <Label fx:id="welcomeText" layoutX="21.0" layoutY="100.0" prefHeight="38.0" prefWidth="77.0" textFill="#e5ff00" textOverrun="CENTER_ELLIPSIS">
+        <Label fx:id="myLabel" layoutX="8.0" layoutY="100.0" prefHeight="38.0" prefWidth="174.0" text="Zalogowany" textFill="#e5ff00" textOverrun="CENTER_ELLIPSIS">
             <font>
                 <Font size="14.0" />
             </font>
@@ -23,6 +23,6 @@
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-      <TextField layoutX="3.0" layoutY="23.0" prefHeight="25.0" prefWidth="94.0" />
+      <TextField fx:id="myTextField" layoutX="3.0" layoutY="23.0" prefHeight="25.0" prefWidth="94.0" />
     </children>
 </AnchorPane>
