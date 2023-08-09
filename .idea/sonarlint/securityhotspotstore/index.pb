@@ -16,5 +16,3 @@ N
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 c
 3src/main/java/com/example/desktop_downtime/App.java,3\0\3027edbf07faaa1aaea6674dec83ac586201c751
-y
-Isrc/main/java/com/example/desktop_downtime/service/TechnicianService.java,3\c\3c280c0d6c99b18e2bf10af7a59681f92d452c14

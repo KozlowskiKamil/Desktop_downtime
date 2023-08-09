@@ -27,7 +27,7 @@ public class HelloApplication extends Application {
         Image image = new Image(getClass().getResource("/ico/icoapp.png").toExternalForm());
         stage.getIcons().add(image);
         Scene scene = new Scene(root);
-        stage.initStyle(StageStyle.TRANSPARENT); // TODO: 7/27/23 change to TRANSPARENT
+        stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         scene.getStylesheets().add("/style.css");
         stage.setTitle(ComputerInfoService.getComputerName());

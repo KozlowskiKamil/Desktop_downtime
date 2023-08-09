@@ -70,11 +70,7 @@ public class LoginController {
         timer.start();
         myTextField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                try {
-                    submit(new ActionEvent());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                loginButton.fire();
             }
         });
     }
