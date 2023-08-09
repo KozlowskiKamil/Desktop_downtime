@@ -24,8 +24,16 @@ public class LoginController {
 
     @FXML
     private void assingBreakedownButton(ActionEvent event) throws IOException {
+        StartController startController = new StartController();
+        startController.closeButton(event);
         BreakdownService breakdownService = new BreakdownService();
         breakdownService.assingButtonClick();
+
+    }
+
+    @FXML
+    private void loginTechnicanButton(ActionEvent event) throws IOException {
+
 
     }
 

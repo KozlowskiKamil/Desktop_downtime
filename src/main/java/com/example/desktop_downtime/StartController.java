@@ -201,8 +201,8 @@ public class StartController {
         breakdownService.onSendButtonClick();
     }
 
-    private void closeButton(ActionEvent event) throws IOException {
-        swichToScene2(event);
+    public void closeButton(ActionEvent event) throws IOException {
+//        swichToScene2(event);
         LocalTime endTime = LocalTime.now();
         long minutes = startTime.until(endTime, ChronoUnit.MINUTES);
         long seconds = startTime.until(endTime, ChronoUnit.SECONDS);

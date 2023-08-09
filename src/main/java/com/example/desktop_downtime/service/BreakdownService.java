@@ -24,7 +24,7 @@ public class BreakdownService {
 
     private final static String REST_API_URL = "http://localhost:8080/breakdown";
     private final static String REST_API_ASSING = "http://localhost:8080/assign";
-    private static Long tempID;
+    public static Long tempID;
     private static Long technicanID;
 
     public void onSendButtonClick() throws IOException {
@@ -105,7 +105,7 @@ public class BreakdownService {
 // Obsługa odpowiedzi od serwera
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
-                System.out.println("Awaria została zamknieta");
+                System.out.println("Wysłano czas oczekiwania i przypisano technika");
                 HttpEntity responseEntity = response.getEntity();
                 String responseString = EntityUtils.toString(responseEntity);
                 System.out.println("Odpowiedź z serwera: " + responseString);
