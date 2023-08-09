@@ -97,7 +97,7 @@ public class BreakdownService {
             HttpClient httpClient = HttpClients.createDefault();
             HttpPost request = new HttpPost(REST_API_ASSING);
             List<NameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("technicianId", String.valueOf(technicanID)));
+            params.add(new BasicNameValuePair("technicianId", String.valueOf(1)));
             params.add(new BasicNameValuePair("breakdownId", String.valueOf(tempID)));
             params.add(new BasicNameValuePair("waitingTime", String.valueOf(StartController.waitingTime)));
             request.setEntity(new UrlEncodedFormEntity(params));
