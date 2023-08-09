@@ -12,12 +12,10 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
-import java.util.InputMismatchException;
+
+import static com.example.desktop_downtime.service.TechnicianService.technicianName;
 
 public class LoginController {
-
-
-    public static int badgeNumberInt;
     int badgeNumber;
     @FXML
     private Label myLabel;
@@ -29,21 +27,24 @@ public class LoginController {
     private Button loginButton;
 
     public void submit(ActionEvent event) throws IOException {
-        TechnicianService technicianService = new TechnicianService();
         try {
             badgeNumber = Integer.parseInt(myTextField.getText());
-            badgeNumberInt = badgeNumber;
-            System.out.println("badgeNumberInt = " + badgeNumberInt);
-
         } catch (NumberFormatException e) {
             myLabel.setText("Wprowadź tylko liczby");
         } catch (Exception e) {
             myLabel.setText("error");
         }
-        technicianService.loginButtonClick();
-        assingBreakedownButton(event);
-        StartController startController = new StartController();
-        startController.swichToScene2(event);
+        TechnicianService technicianService = new TechnicianService();
+        technicianService.loginButtonClick(badgeNumber);
+        if (!technicianName.isEmpty()) {
+            assingBreakedownButton(event);
+            StartController startController = new StartController();
+            startController.swichToScene2(event);
+            technicianName = null;
+        } else {
+            myLabel.setText("Niepoprawny BT");
+        }
+
     }
 
 

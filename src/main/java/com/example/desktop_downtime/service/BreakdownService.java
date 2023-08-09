@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BreakdownService {
 
     private final static String REST_API_URL = "http://localhost:8080/breakdown";
@@ -96,7 +97,7 @@ public class BreakdownService {
             HttpClient httpClient = HttpClients.createDefault();
             HttpPost request = new HttpPost(REST_API_ASSING);
             List<NameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("technicianId", String.valueOf(TechnicianService.TechnicianID)));
+            params.add(new BasicNameValuePair("technicianId", String.valueOf(TechnicianService.technicianID)));
             params.add(new BasicNameValuePair("breakdownId", String.valueOf(tempID)));
             params.add(new BasicNameValuePair("waitingTime", String.valueOf(StartController.waitingTime)));
             request.setEntity(new UrlEncodedFormEntity(params));

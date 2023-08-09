@@ -54,12 +54,6 @@ public class StartController {
         breakdownService.endButtonClick();
     }
 
-    @FXML
-    private void assingBreakedownButton(ActionEvent event) throws IOException {
-        BreakdownService breakdownService = new BreakdownService();
-        breakdownService.assingButtonClick();
-    }
-
 
     @FXML
     public void swichButtonsCreateClose(ActionEvent event) throws IOException {
@@ -68,21 +62,6 @@ public class StartController {
         startTime = LocalTime.now();
         createButton();
         swichToScene3(event);
-
-//        if (isEndButtonVisible) {
-//            closeButton(event);
-//            welcomeText.setText("Zamknięto awarię");
-//            endButton.setText("ZGŁOŚ\nAWARIĘ");
-//            isEndButtonVisible = false;
-//        } else {
-//            createButton();
-//            welcomeText.setText("Awaria\nzgłoszona");
-//            endButton.setText("ZAMKNIJ\nAWARIĘ");
-//            isEndButtonVisible = true;
-//            startTime = LocalTime.now();
-//            endButton.getStyleClass().add("buttonEnd");
-//
-//        }
         hideWelcomeText(Duration.seconds(5));
     }
 
@@ -214,20 +193,5 @@ public class StartController {
         description = myTextArea.getText();
         System.out.println("description = " + description);
     }
-
-//    public void initialize() {
-//        AnimationTimer timer = new AnimationTimer() {
-//            @Override
-//            public void handle(long now) {
-//                if (startTime != null) {
-//                    LocalTime currentTime = LocalTime.now();
-//                    long minutes = startTime.until(currentTime, ChronoUnit.MINUTES);
-//                    long seconds = startTime.until(currentTime, ChronoUnit.SECONDS) % 60;
-//                    timerLabel.setText(String.format("%02d:%02d", minutes, seconds));
-//                }
-//            }
-//        };
-//        timer.start();
-//    }
 
 }

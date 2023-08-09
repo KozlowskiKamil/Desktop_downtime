@@ -1,7 +1,5 @@
 package com.example.desktop_downtime.service;
 
-import com.example.desktop_downtime.LoginController;
-import com.example.desktop_downtime.StartController;
 import com.example.desktop_downtime.model.Technician;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
@@ -18,21 +16,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.desktop_downtime.service.BreakdownService.tempID;
-
 public class TechnicianService {
 
     private final static String REST_API_CHECK_BADGE_NUMBER = "http://localhost:8080/checkbadgenumber";
 
-    public static Long TechnicianID;
-    public static String TechnicianName;
+    public static Long technicianID;
+    public static String technicianName;
 
-    public void loginButtonClick() {
+    public void loginButtonClick(int badgeNumber) {
         try {
             HttpClient httpClient = HttpClients.createDefault();
             HttpPost request = new HttpPost(REST_API_CHECK_BADGE_NUMBER);
             List<NameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("badgeNumber", String.valueOf(LoginController.badgeNumberInt)));
+            params.add(new BasicNameValuePair("badgeNumber", String.valueOf(badgeNumber)));
             request.setEntity(new UrlEncodedFormEntity(params));
             HttpResponse response = httpClient.execute(request);
 // Obsługa odpowiedzi od serwera
@@ -44,10 +40,8 @@ public class TechnicianService {
                 System.out.println("Odpowiedź z serwera: " + responseString);
                 ObjectMapper objectMapper = new ObjectMapper();
                 Technician technician = objectMapper.readValue(responseString, Technician.class);
-                TechnicianID = technician.getId();
-                TechnicianName = technician.getName();
-                System.out.println("TechnicianIDtuuuu = " + TechnicianID);
-                System.out.println("TechnicianName tuuuu= " + TechnicianName);
+                technicianID = technician.getId();
+                technicianName = technician.getName();
             } else {
                 System.out.println("Brak BT w bazie: ");
             }
