@@ -18,15 +18,15 @@
     -fx-background-radius: 20 0 0 20;
 }
 
-#loginButton{
+.buttonEnd{
     -fx-background-color: #FF4933;
     -fx-background-radius: 20 0 0 20;
 }
-#loginButton:hover{
+.buttonEnd:hover{
     -fx-background-color: #BF3626;
     -fx-background-radius: 20 0 0 20;
 }
-#loginButton:pressed{
+.buttonEnd:pressed{
     -fx-background-color: #802419;
     -fx-background-radius: 20 0 0 20;
 }
