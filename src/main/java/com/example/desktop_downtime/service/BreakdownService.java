@@ -65,6 +65,7 @@ public class BreakdownService {
         Breakdown breakdown = new Breakdown();
         breakdown.setId(tempID);
         breakdown.setDescription(StartController.description);
+        breakdown.setWaitingTime(StartController.waitingTime);
         try {
             HttpClient httpClient = HttpClients.createDefault();
             org.apache.http.client.methods.HttpRequestBase request = new HttpPatch(REST_API_URL);
