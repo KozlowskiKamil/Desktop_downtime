@@ -38,16 +38,15 @@ public class HelloApplication extends Application {
         double oneCmInPixels = 100;
         double sceneHeight = 700;
         double posX = screenWidthInPixels - oneCmInPixels;
-        double posY = (screenWidthInPixels - sceneHeight) / 2; // Oblicz pozycję Y na środku
+        double posY = (screenWidthInPixels - sceneHeight) / 2;
         stage.setX(posX);
         stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
         MenuItem minimizeItem = new MenuItem("Minimalizuj");
         minimizeItem.setOnAction(event -> {
-            stage.setIconified(true); // Minimalizuj okno
+            stage.setIconified(true);
         });
         contextMenu.getItems().add(minimizeItem);
-
         root.setOnMousePressed(event -> {
             if (event.isSecondaryButtonDown()) {
                 contextMenu.show(root, event.getScreenX(), event.getScreenY());

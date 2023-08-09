@@ -2,7 +2,6 @@ package com.example.desktop_downtime;
 
 import com.example.desktop_downtime.service.BreakdownService;
 import com.example.desktop_downtime.service.ComputerInfoService;
-import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -25,6 +24,7 @@ public class StartController {
 
     public static String description;
     public static long waitingTime;
+    public static LocalTime startTime;
     @FXML
     private Label welcomeText;
     @FXML
@@ -37,14 +37,11 @@ public class StartController {
     private TextArea myTextArea;
     @FXML
     private TextField myTextField;
-
-    private boolean isEndButtonVisible = false;
+    private final boolean isEndButtonVisible = false;
     private Timeline hideTextTimeline;
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public static LocalTime startTime;
-
 
     @FXML
     private void endBreakedownButton(ActionEvent event) throws IOException {
@@ -53,7 +50,6 @@ public class StartController {
         BreakdownService breakdownService = new BreakdownService();
         breakdownService.endButtonClick();
     }
-
 
     @FXML
     public void swichButtonsCreateClose(ActionEvent event) throws IOException {
@@ -79,16 +75,15 @@ public class StartController {
         double oneCmInPixels = 100;
         double sceneHeight = 700;
         double posX = screenWidthInPixels - oneCmInPixels;
-        double posY = (screenWidthInPixels - sceneHeight) / 2; // Oblicz pozycję Y na środku
+        double posY = (screenWidthInPixels - sceneHeight) / 2;
         stage.setX(posX);
         stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
         MenuItem minimizeItem = new MenuItem("Minimalizuj");
         minimizeItem.setOnAction(event2 -> {
-            stage.setIconified(true); // Minimalizuj okno
+            stage.setIconified(true);
         });
         contextMenu.getItems().add(minimizeItem);
-
         root.setOnMousePressed(event2 -> {
             if (event2.isSecondaryButtonDown()) {
                 contextMenu.show(root, event2.getScreenX(), event2.getScreenY());
@@ -118,10 +113,9 @@ public class StartController {
         ContextMenu contextMenu = new ContextMenu();
         MenuItem minimizeItem = new MenuItem("Minimalizuj");
         minimizeItem.setOnAction(event2 -> {
-            stage.setIconified(true); // Minimalizuj okno
+            stage.setIconified(true);
         });
         contextMenu.getItems().add(minimizeItem);
-
         root.setOnMousePressed(event2 -> {
             if (event2.isSecondaryButtonDown()) {
                 contextMenu.show(root, event2.getScreenX(), event2.getScreenY());
@@ -145,16 +139,15 @@ public class StartController {
         double oneCmInPixels = 190;
         double sceneHeight = 700;
         double posX = screenWidthInPixels - oneCmInPixels;
-        double posY = (screenWidthInPixels - sceneHeight) / 2; // Oblicz pozycję Y na środku
+        double posY = (screenWidthInPixels - sceneHeight) / 2;
         stage.setX(posX);
         stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
         MenuItem minimizeItem = new MenuItem("Minimalizuj");
         minimizeItem.setOnAction(event2 -> {
-            stage.setIconified(true); // Minimalizuj okno
+            stage.setIconified(true);
         });
         contextMenu.getItems().add(minimizeItem);
-
         root.setOnMousePressed(event2 -> {
             if (event2.isSecondaryButtonDown()) {
                 contextMenu.show(root, event2.getScreenX(), event2.getScreenY());
@@ -181,7 +174,6 @@ public class StartController {
     }
 
     public void closeButton(ActionEvent event) throws IOException {
-//        swichToScene2(event);
         LocalTime endTime = LocalTime.now();
         long minutes = startTime.until(endTime, ChronoUnit.MINUTES);
         long seconds = startTime.until(endTime, ChronoUnit.SECONDS);
@@ -193,5 +185,4 @@ public class StartController {
         description = myTextArea.getText();
         System.out.println("description = " + description);
     }
-
 }

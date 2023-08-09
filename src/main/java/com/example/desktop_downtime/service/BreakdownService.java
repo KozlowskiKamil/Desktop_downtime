@@ -44,7 +44,7 @@ public class BreakdownService {
 // Obsługa odpowiedzi od serwera
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 201) {
-                System.out.println("Awaria została pomyślnie dodana na serwerze.");
+                System.out.println("Awaria została dodana do bazy");
                 HttpEntity responseEntity = response.getEntity();
                 String responseString = EntityUtils.toString(responseEntity);
                 System.out.println("Odpowiedź od serwera: " + responseString);

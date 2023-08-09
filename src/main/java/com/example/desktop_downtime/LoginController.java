@@ -44,9 +44,7 @@ public class LoginController {
         } else {
             myLabel.setText("Niepoprawny BT");
         }
-
     }
-
 
     private void assingBreakedownButton(ActionEvent event) throws IOException {
         StartController startController = new StartController();

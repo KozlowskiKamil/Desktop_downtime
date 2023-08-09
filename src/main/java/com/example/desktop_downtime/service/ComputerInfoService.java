@@ -17,23 +17,22 @@ public class ComputerInfoService {
             return InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             e.printStackTrace();
-            return "Unknown name";
+            return "Brak nazwy PC";
         }
     }
 
     public static String getErrorName() throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
         try
-            (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    int index = line.indexOf(startWord);
-                    if (index != -1) {
-                        stringBuilder.append(line.substring(index)).append("\n");
-                    }
+                (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                int index = line.indexOf(startWord);
+                if (index != -1) {
+                    stringBuilder.append(line.substring(index)).append("\n");
                 }
             }
+        }
         return stringBuilder.toString();
     }
-
 }
