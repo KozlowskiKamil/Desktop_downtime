@@ -36,7 +36,7 @@ public class LoginController {
         }
         TechnicianService technicianService = new TechnicianService();
         technicianService.loginButtonClick(badgeNumber);
-        if (!technicianName.isEmpty()) {
+        if (technicianName != null) {
             assingBreakedownButton(event);
             StartController startController = new StartController();
             startController.swichToScene2(event);
