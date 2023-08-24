@@ -14,5 +14,9 @@ N
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-c
-3src/main/java/com/example/desktop_downtime/App.java,3\0\3027edbf07faaa1aaea6674dec83ac586201c751
+y
+Isrc/main/java/com/example/desktop_downtime/model/BreakdownIdResponse.java,d\8\d872f5a0325bb9a9238ed80805920e16580c3b3a
+o
+?src/main/java/com/example/desktop_downtime/model/Breakdown.java,3\c\3c99005645c38401d18369ba02caa000037550bf
+p
+@src/main/java/com/example/desktop_downtime/model/Technician.java,c\e\ce4233e13f34a3e09fec77b4a1a2eceec527b56b

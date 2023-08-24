@@ -1,4 +1,3 @@
-/*
 package com.example.desktop_downtime;
 
 import javafx.application.Application;
@@ -8,49 +7,60 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Start extends Application {
+public class Start {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    private static final String DIRECTORY_PATH = "C:\\Users\\Kamil\\Desktop\\Projects\\Desktop_downtime\\src\\main\\resources\\";
+    private static final String PARTIAL_FILENAME = "text";
+    private static final String START_WORD = "fail";
 
-    @Override
-    public void start(Stage primaryStage) {
-        TextArea textArea = new TextArea();
-        textArea.setEditable(false);
+    public static List<String> readFilesWithPartialName() {
+        List<String> results = new ArrayList<>();
 
-        String wordToSearch = "fail";
+        File directory = new File(DIRECTORY_PATH);
+        File[] files = directory.listFiles();
 
-        try {
-            String filePath = "C:\\Users\\Kamil\\Desktop\\Projects\\Desktop_downtime\\src\\main\\resources\\test.txt";
-            String sentence = findSentenceAfterWord(filePath, wordToSearch);
-            textArea.setText("Zdanie po słowie \"" + wordToSearch + "\":\n" + sentence);
-        } catch (IOException e) {
-            textArea.setText("Błąd odczytu pliku: " + e.getMessage());
-        }
-
-        StackPane root = new StackPane(textArea);
-        Scene scene = new Scene(root, 400, 300);
-        primaryStage.setTitle("Zdanie po słowie w pliku txt");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    private String findSentenceAfterWord(String filePath, String wordToSearch) throws IOException {
-        StringBuilder result = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                int index = line.indexOf(wordToSearch);
-                if (index != -1) {
-                    result.append(line.substring(index)).append("\n");
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile() && file.getName().startsWith(PARTIAL_FILENAME)) {
+                    try {
+                        results.add(readErrorNameFromFile(file));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        results.add("Błąd odczytu pliku: " + file.getName());
+                    }
                 }
             }
         }
-        return result.toString();
+
+        return results;
+    }
+
+    private static String readErrorNameFromFile(File file) throws IOException {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                int index = line.indexOf(START_WORD);
+                if (index != -1) {
+                    stringBuilder.append(line.substring(index)).append("\n");
+                }
+            }
+        }
+
+        return stringBuilder.toString();
+    }
+
+    public static void main(String[] args) {
+        List<String> results = readFilesWithPartialName();
+        for (String result : results) {
+            System.out.println(result);
+        }
     }
 }
-*/
