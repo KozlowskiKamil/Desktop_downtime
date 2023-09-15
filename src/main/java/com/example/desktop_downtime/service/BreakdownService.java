@@ -23,8 +23,8 @@ import java.util.List;
 
 public class BreakdownService {
 
-    private final static String REST_API_URL = "http://localhost:8080/breakdown";
-    private final static String REST_API_ASSING = "http://localhost:8080/assign";
+    private final static String REST_API_URL = "http://192.168.1.53:8080/breakdown";
+    private final static String REST_API_ASSING = "http://192.168.1.53:8080/assign";
     public static Long tempID;
 
     public void onSendButtonClick() throws IOException {
