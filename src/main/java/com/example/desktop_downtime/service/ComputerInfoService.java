@@ -8,7 +8,7 @@ import java.net.UnknownHostException;
 
 public class ComputerInfoService {
 
-    private static final String FILE_PATH = "C:\\Users\\Kamil\\Desktop\\Projects\\Desktop_downtime\\src\\main\\resources\\test.txt";
+    private static final String FILE_PATH = "/home/kamil/Desktop/Desktop_downtime/src/main/resources/test.txt";
     private static final String startWord = "fail";
 
 
