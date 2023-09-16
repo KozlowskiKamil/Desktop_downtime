@@ -8,7 +8,8 @@ import java.net.UnknownHostException;
 
 public class ComputerInfoService {
 
-    private static final String FILE_PATH = "/home/kamil/Desktop/Desktop_downtime/src/main/resources/test.txt";
+    private static final String FILE_PATH = "C:\\test.txt";
+//    private static final String FILE_PATH = "/home/kamil/Desktop/Desktop_downtime/src/main/resources/test.txt";
     private static final String startWord = "fail";
 
 
@@ -21,10 +22,9 @@ public class ComputerInfoService {
         }
     }
 
-    public static String getErrorName() throws IOException {
+    public static String getErrorName() {
         StringBuilder stringBuilder = new StringBuilder();
-        try
-                (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 int index = line.indexOf(startWord);
@@ -32,6 +32,9 @@ public class ComputerInfoService {
                     stringBuilder.append(line.substring(index)).append("\n");
                 }
             }
+        } catch (IOException e) {
+            System.err.println("Błąd odczytu pliku: " + e.getMessage());
+            return "Brak pliku";
         }
         return stringBuilder.toString();
     }
