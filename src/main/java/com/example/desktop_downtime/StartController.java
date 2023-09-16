@@ -136,7 +136,7 @@ public class StartController {
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();
         double screenWidthInPixels = Screen.getPrimary().getBounds().getWidth();
-        double oneCmInPixels = 190;
+        double oneCmInPixels = 210;
         double sceneHeight = 700;
         double posX = screenWidthInPixels - oneCmInPixels;
         double posY = (screenWidthInPixels - sceneHeight) / 2;
