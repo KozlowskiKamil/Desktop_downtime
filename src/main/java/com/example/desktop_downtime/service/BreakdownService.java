@@ -25,10 +25,10 @@ public class BreakdownService {
 
 //    private final static String REST_API_URL = "http://192.168.1.53:8080/breakdown";
 //    private final static String REST_API_URL = "http://192.168.43.171:8080/breakdown";
-    private final static String REST_API_URL = "http://192.168.157.7:8080/breakdown";
+    private final static String REST_API_URL = "http://kozlowski.alwaysdata.net/breakdown";
 //    private final static String REST_API_ASSING = "http://192.168.1.53:8080/assign";
 //    private final static String REST_API_ASSING = "http://192.168.43.171:8080/assign";
-    private final static String REST_API_ASSING = "http://192.168.157.7:8080/assign";
+    private final static String REST_API_ASSING = "http://kozlowski.alwaysdata.net/assign";
     public static Long tempID;
 
     public void onSendButtonClick() throws IOException {
