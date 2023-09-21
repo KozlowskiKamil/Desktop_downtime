@@ -20,7 +20,7 @@ public class TechnicianService {
 
 //    private final static String REST_API_CHECK_BADGE_NUMBER = "http://192.168.1.53:8080/checkbadgenumber";
 //    private final static String REST_API_CHECK_BADGE_NUMBER = "http://192.168.43.171:8080/checkbadgenumber";
-    private final static String REST_API_CHECK_BADGE_NUMBER = "http://192.168.157.7:8080/checkbadgenumber";
+    private final static String REST_API_CHECK_BADGE_NUMBER = "http://kozlowski.alwaysdata.net/checkbadgenumber";
 
     public static Long technicianID;
     public static String technicianName;

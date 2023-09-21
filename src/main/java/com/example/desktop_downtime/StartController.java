@@ -79,7 +79,7 @@ public class StartController {
         stage.setX(posX);
         stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem minimizeItem = new MenuItem("Minimalizuj");
+        MenuItem minimizeItem = new MenuItem("Minimize");
         minimizeItem.setOnAction(event2 -> {
             stage.setIconified(true);
         });
@@ -111,7 +111,7 @@ public class StartController {
         stage.setAlwaysOnTop(true);
         stage.alwaysOnTopProperty();
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem minimizeItem = new MenuItem("Minimalizuj");
+        MenuItem minimizeItem = new MenuItem("Minimize");
         minimizeItem.setOnAction(event2 -> {
             stage.setIconified(true);
         });
@@ -143,7 +143,7 @@ public class StartController {
         stage.setX(posX);
         stage.setY(posY);
         ContextMenu contextMenu = new ContextMenu();
-        MenuItem minimizeItem = new MenuItem("Minimalizuj");
+        MenuItem minimizeItem = new MenuItem("Minimize");
         minimizeItem.setOnAction(event2 -> {
             stage.setIconified(true);
         });

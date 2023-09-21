@@ -18,7 +18,7 @@ public class ComputerInfoService {
             return InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             e.printStackTrace();
-            return "Brak nazwy PC";
+            return "No PC name";
         }
     }
 
@@ -34,7 +34,7 @@ public class ComputerInfoService {
             }
         } catch (IOException e) {
             System.err.println("Błąd odczytu pliku: " + e.getMessage());
-            return "Brak pliku";
+            return "No file";
         }
         return stringBuilder.toString();
     }

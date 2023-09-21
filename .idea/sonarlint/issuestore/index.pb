@@ -14,5 +14,3 @@ H
 src/META-INF/MANIFEST.MF,e\4\e4b1fd2293ba1e598e6bec4e0ee3b6b6851eb5a2
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
-o
-?src/main/java/com/example/desktop_downtime/StartController.java,2\e\2e6cdc243c40a8c0d601df99225b7097f211638b

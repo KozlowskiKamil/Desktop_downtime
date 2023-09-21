@@ -31,7 +31,7 @@ public class LoginController {
         try {
             badgeNumber = Integer.parseInt(myTextField.getText());
         } catch (NumberFormatException e) {
-            myLabel.setText("Wprowadź tylko liczby");
+            myLabel.setText("Enter numbers only");
         } catch (Exception e) {
             myLabel.setText("error");
         }
@@ -43,7 +43,7 @@ public class LoginController {
             startController.swichToScene2(event);
             technicianName = null;
         } else {
-            myLabel.setText("Niepoprawny BT");
+            myLabel.setText("Invalid number");
         }
     }
 

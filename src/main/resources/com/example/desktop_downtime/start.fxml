@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="99.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.desktop_downtime.StartController">
    <children>
-      <Button fx:id="endButton" layoutX="13.0" onAction="#swichButtonsCreateClose" prefHeight="73.0" prefWidth="86.0" stylesheets="@../../../style.css" text="ZGŁOŚ&#10;AWARIĘ" textAlignment="CENTER">
+      <Button fx:id="endButton" layoutX="13.0" onAction="#swichButtonsCreateClose" prefHeight="73.0" prefWidth="86.0" stylesheets="@../../../style.css" text="REPORT&#10;FAILURE" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
